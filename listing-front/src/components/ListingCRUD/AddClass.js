@@ -5,19 +5,25 @@ import { Title } from '../Form/Title';
 import { ClassDescription } from '../Form/ClassDescription';
 
 
-export const ClassList = () => {
+export const AddClass = () => {
 
-    const [newInput, setNewInput] = useState([{field: "Another days for you"}])
+    const initialState = [
+        {title: ""},
+        {description: ""},
+        {highlight: ""},
+    ]
+    const [newInput, setNewInput] = useState(initialState)
 
     const handleChange = (e) => {
 
         const { name, value } = e.target;
         setNewInput({...setNewInput, [name]: value});
+        console.log(value)
     }
 
     return (
         <form>
-            <Title />
+            <Title newInput={newInput} handleChange={handleChange}/>
 
             <hr />
 

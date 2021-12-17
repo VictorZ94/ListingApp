@@ -46,11 +46,11 @@
 Now you have all environment ready for getting started working with it.
 
 - Create DB:
-    ### Move inside linstingBack
+    ### Move inside listingBack
     ```Bash
-    cd linstingBack
+    cd listingBack
     ```
-    Now you'll see your prompt look like. `linstingBack$`
+    Now you'll see your prompt look like. `listingBack$`
 
     ### Install requirements
     ```Bash
@@ -79,7 +79,7 @@ cd ..
 - [Optional] can be uploaded data contained in folder fixtures
 
     ```Bash
-    python3 manage.py loaddata fixtures/data_fixture.json
+    python3 manage.py loaddata fixtures/data.json
     ```
     Note: If you don't upload this data, you should be to create each user and post from scratch
 

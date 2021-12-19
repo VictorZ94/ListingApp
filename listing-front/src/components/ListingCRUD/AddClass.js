@@ -3,31 +3,38 @@ import { Category } from '../Form/Category';
 import { Highlight } from '../Form/Highlight';
 import { Title } from '../Form/Title';
 import { ClassDescription } from '../Form/ClassDescription';
-
+import * as Classes from './CallServer'
 
 export const AddClass = () => {
 
-    const initialState = [
-        {title: ""},
-        {description: ""},
-        {highlight: ""},
-    ]
+    const initialState = {
+        title: "", 
+        highlight: "",
+    }
+
     const [newInput, setNewInput] = useState(initialState)
-
     const handleChange = (e) => {
-
         const { name, value } = e.target;
-        setNewInput({...setNewInput, [name]: value});
-        console.log(value)
+        setNewInput({...newInput, [name]: value});
+    }
+
+    const handleInputSubmit = async (e) => {
+        e.preventDefault()
+        try {
+            console.log(await Classes.addNewClass(newInput));
+            setNewInput(initialState);
+        } catch(error) {
+            console.error(error)
+        }
     }
 
     return (
-        <form>
+        <form onSubmit={handleInputSubmit}>
             <Title newInput={newInput} handleChange={handleChange}/>
 
             <hr />
 
-            <Category />
+            <Category newInput={newInput} handleChange={handleChange}/> {/** and event */}
 
             <hr />
 
@@ -35,26 +42,20 @@ export const AddClass = () => {
 
             <hr />
 
-            <ClassDescription />
+            <ClassDescription newInput={newInput} handleChange={handleChange} />
 
             <hr />
 
-            <div className="row g-3 align-items-center">
+            {/* <div className="row g-3 align-items-center">
                 <div className="col-auto">
                     <label htmlFor="highlight" className="col-form-label">:</label>
                 </div>
                 <div className="col-auto">
                     <input type="text" className="form-control" id="highlight"/>
                 </div>
-            </div>
-
+            </div> */}
+            <button type="submit" className="btn btn-success">Submit</button>
             <hr />
-
-            <pre>
-                {
-                    JSON.stringify(newInput, null)
-                }
-            </pre>
         </form>
     )
 }

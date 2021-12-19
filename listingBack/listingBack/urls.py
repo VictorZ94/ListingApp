@@ -18,5 +18,6 @@ from ListingCRUD.views import ClassesView
 
 
 urlpatterns = [
-    path("", ClassesView.as_view(), name="list_class")
+    path("", ClassesView.as_view(), name="list_class"),
+    path("<int:id>", ClassesView.as_view(), name="list_class")
 ]

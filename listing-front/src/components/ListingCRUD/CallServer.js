@@ -12,6 +12,9 @@ export const addNewClass = async (newClass) => {
         },
         body: JSON.stringify({
             'title': String(newClass.title).trim(),
+            'description': String(newClass.description).trim(),
+            'category': String(newClass.category).trim(),
+            'event': String(newClass.event).trim(),
         })
     })
 }

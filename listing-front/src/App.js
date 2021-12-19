@@ -4,6 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Navbar from './components/Navbar/Navbar';
 import { AddClass } from './components/ListingCRUD/AddClass';
 import { ListClasses } from './components/ListingCRUD/ListClasses';
+import { SeeClass } from './components/ListingCRUD/SeeClass';
 
 
 function App() {
@@ -14,7 +15,7 @@ function App() {
         <Routes>
           <Route exact path="/" element={<ListClasses />}></Route>
           <Route path="/add" element={<AddClass />}></Route>
-          {/* <Route path="/updateCompany/:id" element={<CompanyForm />}></Route> */}
+          <Route path="/seeclass" element={<SeeClass />}></Route>
         </Routes>
       </div>
     </BrowserRouter>

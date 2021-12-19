@@ -33,9 +33,8 @@ class ClassesView(View):
         data = json.loads(request.body)
         title = data['title']
         slug = "-".join(list(map(lambda word: word.lower(), title.split())))
-        Company.objects.create(title=title,
+        Classes.objects.create(title=title,
                                description=data['description'],
-                               foundation=data['foundation'],
                                event=data['event'],
                                slug=slug,
                                category=data['category']

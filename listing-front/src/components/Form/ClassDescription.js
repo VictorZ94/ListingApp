@@ -1,13 +1,13 @@
 import React from 'react'
 
-export const ClassDescription = () => {
+export const ClassDescription = ({newInput, handleChange}) => {
     return (
         <div className="row g-3 align-items-center">
             <div className="col-12">
-                <label htmlFor="highlight" className="col-form-label">Class Description:</label>
+                <label htmlFor="description" className="col-form-label">Class Description:</label>
             </div>
             <div className="col-12">
-                <textarea class="form-control" aria-label="With textarea"></textarea>
+                <input type="text" name="description" value={newInput.description} onChange={handleChange} className="form-control" id="description"/>
             </div>
         </div>
     )
